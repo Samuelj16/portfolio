@@ -1,39 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--
+    =====================================================
+    SAMUEL JOSEPH - DEVELOPER PORTFOLIO
+    =====================================================
+    A responsive, cloud-based portfolio website built with
+    vanilla HTML, CSS, and JavaScript.
+
+    Author: Samuel Joseph
+    GitHub: https://github.com/Samuelj16
+    =====================================================
+    -->
+
+    <!-- Character encoding and viewport settings for responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags - Important for search engine visibility -->
     <meta name="description" content="Student developer portfolio showcasing programming projects, skills, and experience">
     <meta name="keywords" content="developer, portfolio, programming, projects, web development">
 
-    <!-- Open Graph / Social Media -->
+    <!-- Open Graph Meta Tags - For social media sharing (Facebook, LinkedIn, etc.) -->
     <meta property="og:title" content="Samuel Joseph | Developer Portfolio">
     <meta property="og:description" content="Showcasing 10+ programming projects with live demos">
     <meta property="og:type" content="website">
 
-    <!-- Preconnect for performance -->
+    <!--
+    Performance Optimization: Preconnect
+    Establishes early connections to external domains to speed up loading
+    -->
     <link rel="preconnect" href="https://api.github.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Fonts -->
+    <!-- Google Fonts - Poppins for headings, Fira Code for code-style text -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
 
     <title>Samuel Joseph | Developer Portfolio</title>
 </head>
 <body>
-    <!-- Navigation -->
+    <!--
+    =====================================================
+    NAVIGATION BAR
+    =====================================================
+    Fixed navigation with smooth scroll links.
+    Includes mobile hamburger menu toggle.
+    -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
+            <!-- Logo - Links back to home section -->
             <a href="#home" class="nav-logo">
                 <span class="logo-bracket">&lt;</span>Dev<span class="logo-bracket">/&gt;</span>
             </a>
+
+            <!-- Mobile Menu Toggle Button (hamburger icon) -->
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span class="hamburger"></span>
             </button>
+
+            <!-- Navigation Menu Links -->
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -45,25 +74,43 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!--
+    =====================================================
+    HERO SECTION
+    =====================================================
+    Main landing section with:
+    - Animated greeting text
+    - Typing effect for job titles (handled by main.js)
+    - Call-to-action buttons
+    - Floating animated shapes for visual interest
+    -->
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-text">
+                <!-- Greeting and Name -->
                 <p class="hero-greeting">Hello, I'm</p>
                 <h1 class="hero-name">Samuel Joseph</h1>
+
+                <!-- Typing Effect Container - Text inserted by JavaScript -->
                 <h2 class="hero-title">
                     <span class="typing-text"></span>
                     <span class="cursor">|</span>
                 </h2>
+
+                <!-- Brief Introduction -->
                 <p class="hero-description">
                     A passionate student developer creating innovative web applications
                     and exploring the latest technologies.
                 </p>
+
+                <!-- Call-to-Action Buttons -->
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
             </div>
+
+            <!-- Decorative Floating Shapes (CSS animated) -->
             <div class="hero-visual">
                 <div class="floating-shapes">
                     <div class="shape shape-1"></div>
@@ -73,19 +120,28 @@
                 </div>
             </div>
         </div>
+
+        <!-- Scroll Down Indicator -->
         <div class="scroll-indicator">
             <span>Scroll Down</span>
             <div class="scroll-arrow"></div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!--
+    =====================================================
+    ABOUT SECTION
+    =====================================================
+    Personal introduction and background.
+    Includes placeholder for profile photo.
+    -->
     <section id="about" class="about section">
         <div class="container">
             <h2 class="section-title">
                 <span class="title-number">01.</span> About Me
             </h2>
             <div class="about-content">
+                <!-- About Text - Edit this to personalize your story -->
                 <div class="about-text">
                     <p>
                         I'm a computer science student with a passion for building things that live on the internet.
@@ -102,6 +158,8 @@
                         or learning about cloud architecture and DevOps practices.
                     </p>
                 </div>
+
+                <!-- Profile Image Placeholder - Replace with your photo -->
                 <div class="about-image">
                     <div class="image-wrapper">
                         <div class="image-border"></div>
@@ -114,13 +172,23 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!--
+    =====================================================
+    SKILLS SECTION
+    =====================================================
+    Technical skills organized by category:
+    - Frontend: JavaScript, TypeScript, React, Vue, HTML5, CSS3
+    - Backend: Node.js, Python, Express, MongoDB, PostgreSQL, GraphQL
+    - Cloud & DevOps: AWS, Docker, Git, CI/CD, S3, CloudFront
+    - Tools: VS Code, Figma, Postman, Jest, Webpack, Vite
+    -->
     <section id="skills" class="skills section">
         <div class="container">
             <h2 class="section-title">
                 <span class="title-number">02.</span> Skills & Technologies
             </h2>
             <div class="skills-grid">
+                <!-- Frontend Skills Category -->
                 <div class="skill-category">
                     <h3 class="category-title">Frontend</h3>
                     <div class="skill-items">
@@ -150,6 +218,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Backend Skills Category -->
                 <div class="skill-category">
                     <h3 class="category-title">Backend</h3>
                     <div class="skill-items">
@@ -179,6 +249,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Cloud & DevOps Skills Category -->
                 <div class="skill-category">
                     <h3 class="category-title">Cloud & DevOps</h3>
                     <div class="skill-items">
@@ -208,6 +280,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Development Tools Category -->
                 <div class="skill-category">
                     <h3 class="category-title">Tools</h3>
                     <div class="skill-items">
@@ -241,12 +315,22 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!--
+    =====================================================
+    PROJECTS SECTION
+    =====================================================
+    Dynamic project showcase with:
+    - Filter buttons (All, Frontend, Full Stack, API, Cloud)
+    - Project cards rendered by JavaScript (projects.js)
+    - Click to open modal with project details
+    -->
     <section id="projects" class="projects section">
         <div class="container">
             <h2 class="section-title">
                 <span class="title-number">03.</span> Featured Projects
             </h2>
+
+            <!-- Project Filter Buttons -->
             <div class="project-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="frontend">Frontend</button>
@@ -254,28 +338,51 @@
                 <button class="filter-btn" data-filter="api">API</button>
                 <button class="filter-btn" data-filter="cloud">Cloud</button>
             </div>
+
+            <!-- Projects Grid Container - Populated by projects.js -->
             <div class="projects-grid" id="projectsGrid">
-                <!-- Projects will be dynamically inserted here -->
+                <!-- Project cards are dynamically inserted here by JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- GitHub Section -->
+    <!--
+    =====================================================
+    GITHUB SECTION
+    =====================================================
+    Live GitHub integration:
+    - Fetches profile data from GitHub API
+    - Displays recent repositories
+    - Shows stats (repos, followers, following)
+    - Configured in github.js
+    -->
     <section id="github" class="github section">
         <div class="container">
             <h2 class="section-title">
                 <span class="title-number">04.</span> GitHub Activity
             </h2>
+
+            <!-- GitHub Profile Container - Populated by github.js -->
             <div class="github-profile" id="githubProfile">
-                <!-- GitHub profile will be loaded here -->
+                <!-- Profile info loaded dynamically from GitHub API -->
             </div>
+
+            <!-- GitHub Repositories Container - Populated by github.js -->
             <div class="github-repos" id="githubRepos">
-                <!-- GitHub repos will be loaded here -->
+                <!-- Repository cards loaded dynamically from GitHub API -->
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!--
+    =====================================================
+    CONTACT SECTION
+    =====================================================
+    Contact information and links:
+    - Email (with mailto link)
+    - GitHub profile
+    - LinkedIn profile
+    -->
     <section id="contact" class="contact section">
         <div class="container">
             <h2 class="section-title">
@@ -286,44 +393,73 @@
                     I'm currently looking for new opportunities and my inbox is always open.
                     Whether you have a question or just want to say hi, I'll try my best to get back to you!
                 </p>
+
+                <!-- Contact Links -->
                 <div class="contact-links">
+                    <!-- Email Link -->
                     <a href="mailto:donsamuel6@gmail.com" class="contact-link">
                         <span class="contact-icon">@</span>
                         <span>donsamuel6@gmail.com</span>
                     </a>
+
+                    <!-- GitHub Link -->
                     <a href="https://github.com/Samuelj16" target="_blank" rel="noopener" class="contact-link">
                         <span class="contact-icon">GH</span>
                         <span>github.com/Samuelj16</span>
                     </a>
+
+                    <!-- LinkedIn Link -->
                     <a href="https://www.linkedin.com/in/samuel-joseph-1248911a9/" target="_blank" rel="noopener" class="contact-link">
                         <span class="contact-icon">in</span>
                         <span>linkedin.com/in/samuel-joseph</span>
                     </a>
                 </div>
+
+                <!-- Primary Contact Button -->
                 <a href="mailto:donsamuel6@gmail.com" class="btn btn-primary btn-large">Say Hello</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!--
+    =====================================================
+    FOOTER
+    =====================================================
+    Simple footer with copyright.
+    Year is set dynamically by JavaScript.
+    -->
     <footer class="footer">
         <div class="container">
             <p>Designed & Built by <span class="highlight">Samuel Joseph</span></p>
-            <p class="footer-year"></p>
+            <p class="footer-year"></p> <!-- Year inserted by main.js -->
         </div>
     </footer>
 
-    <!-- Project Modal -->
+    <!--
+    =====================================================
+    PROJECT MODAL
+    =====================================================
+    Popup modal for displaying project details.
+    Content is dynamically inserted when a project card is clicked.
+    -->
     <div class="modal" id="projectModal">
         <div class="modal-content">
             <button class="modal-close" id="modalClose">&times;</button>
             <div class="modal-body" id="modalBody">
-                <!-- Modal content will be inserted here -->
+                <!-- Modal content dynamically inserted by main.js -->
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!--
+    =====================================================
+    JAVASCRIPT FILES
+    =====================================================
+    Load order matters:
+    1. projects.js - Project data and rendering
+    2. github.js - GitHub API integration
+    3. main.js - Navigation, animations, modal handling
+    -->
     <script src="js/projects.js"></script>
     <script src="js/github.js"></script>
     <script src="js/main.js"></script>
