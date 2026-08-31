@@ -4,12 +4,17 @@ A responsive, cloud-based portfolio website showcasing programming projects, ski
 
 ## Live Demo
 
-Visit: [https://samuelj16.github.io/portfolio/](https://samuelj16.github.io/portfolio/)
+Intended URL: [https://samuelj16.github.io/portfolio/](https://samuelj16.github.io/portfolio/)
+
+> **Not live yet.** The Pages workflow in `.github/workflows/deploy.yml` has never
+> been committed, so no deployment has run and the URL currently returns 404.
+> Commit that file and enable Pages (Settings → Pages → Source: GitHub Actions)
+> to publish.
 
 ## Features
 
 - **Responsive Design** - Works seamlessly on mobile, tablet, and desktop
-- **Dynamic Project Showcase** - 12+ projects with filtering by category
+- **Dynamic Project Showcase** - 8 real projects with filtering by category
 - **GitHub Integration** - Live display of GitHub repos and profile stats
 - **Smooth Animations** - Typing effect, scroll animations, and hover interactions
 - **Performance Optimized** - Lazy loading, preconnect hints, optimized assets
@@ -17,11 +22,16 @@ Visit: [https://samuelj16.github.io/portfolio/](https://samuelj16.github.io/port
 
 ## Tech Stack
 
+This site itself is deliberately dependency-free:
+
 - HTML5
 - CSS3 (Custom properties, Grid, Flexbox)
 - Vanilla JavaScript (ES6+)
 - GitHub API
-- AWS S3 / CloudFront (optional)
+- GitHub Pages, or AWS S3 / CloudFront (optional)
+
+The projects it showcases are built with FastAPI, Next.js, React, Express,
+PostgreSQL, Redis, Docker and the Claude API — see `js/projects.js`.
 
 ## Project Structure
 
@@ -39,6 +49,19 @@ portfolio/
 └── deploy/
     └── aws-deploy.sh   # AWS deployment script
 ```
+
+## Featured Projects
+
+| Project | What it is | Stack |
+|---|---|---|
+| [Human in the Loop](https://human-in-the-loop-five.vercel.app) | Research agent with a priced approval gate and verified citations | FastAPI, Next.js 16, PostgreSQL, Redis |
+| Laetitia Nail Design | Studio site and booking engine with deposit gate and admin panel | FastAPI, SQLAlchemy, Docker |
+| StockSage | Stock research tool with an AI assistant that explains terms | React 18, Vite, Express, JWT |
+| job-bot | Scores job postings against your resume, tailors applications | Python, Claude API, Playwright |
+| [Wedding Invitation](https://samuelandwildineinvatation.netlify.app/) | Self-contained invite tuned for iMessage link previews | HTML, CSS, JS, Open Graph |
+| [Wedding Website](https://samuelandwildinewedding.netlify.app) | Nine pages driven by a single config file | HTML, CSS, JS |
+| 2027 Budget Board | Interactive budget board, every figure editable and live | HTML, CSS, JS |
+| [Serverless Employees API](https://github.com/Samuelj16/lambda-mongodb) | Minimal REST API on Lambda behind API Gateway | AWS Lambda, MongoDB, Python |
 
 ## Local Development
 
@@ -68,7 +91,7 @@ Edit `js/projects.js` to add your own projects:
     title: "Project Name",
     description: "Short description",
     tech: ["React", "Node.js"],
-    category: "fullstack", // frontend, fullstack, api, cloud
+    category: "fullstack", // ai, fullstack, frontend, cloud
     demo: "https://demo-url.com",
     github: "https://github.com/username/repo"
 }
@@ -101,9 +124,10 @@ const GITHUB_CONFIG = {
 
 ## Performance
 
-- Lighthouse Score: 95+
-- First Contentful Paint: < 1.5s
-- Fully loaded: < 3s
+No build step, no framework and no third-party scripts, so the whole site is a
+handful of static files. Lazy-loaded images and preconnect hints are in place.
+(The numbers previously quoted here were never measured, so they have been
+removed — run Lighthouse yourself once the site is deployed.)
 
 ## License
 

@@ -203,10 +203,10 @@ function initTypingEffect() {
     // NOTE: Edit this array to customize your titles
     const titles = [
         'Full Stack Developer',
-        'Cloud Enthusiast',
-        'Problem Solver',
-        'Student Developer',
-        'Open Source Contributor'
+        'AI Agent Builder',
+        'FastAPI & Next.js',
+        'Computer Science Student',
+        'Problem Solver'
     ];
 
     let titleIndex = 0;      // Current title in array

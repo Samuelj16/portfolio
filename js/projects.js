@@ -1,234 +1,162 @@
 /**
  * Projects Data and Dynamic Rendering
+ *
+ * Every entry below is a real, working project. `demo` links have been
+ * checked and respond 200; `github` is null where no public repository
+ * exists yet (the card simply omits the button).
  */
 
 const projects = [
     {
         id: 1,
-        title: "E-Commerce Platform",
-        description: "Full-stack e-commerce solution with user authentication, product management, and payment integration.",
-        longDescription: "A comprehensive e-commerce platform built from scratch featuring user authentication with JWT, product catalog with search and filters, shopping cart functionality, Stripe payment integration, and an admin dashboard for inventory management.",
-        tech: ["React", "Node.js", "MongoDB", "Stripe"],
-        category: "fullstack",
-        emoji: "🛒",
+        title: "Human in the Loop",
+        description: "A deep-research agent that asks permission before it spends your money, and proves its sources exist before it hands you a report.",
+        longDescription: "Most research agents are a prompt box wired to a tool loop — you ask, it burns tokens unattended, and you get prose full of confident citations you have to check by hand. This one puts a person at the two moments that matter. The agent drafts a plan and stops, showing you the steps alongside what approving them will cost, recalculated as you edit. And it keeps a ledger of every URL search actually returned, so the finished report's links can be diffed against it: verified links were genuinely fetched, unverified ones came from the model's memory. That check is a mechanism in code, not a prompt instruction, which is why it can be trusted. Runs on Claude, or on any open-weight model behind an OpenAI-compatible endpoint.",
+        tech: ["FastAPI", "Next.js 16", "React 19", "PostgreSQL", "Redis", "Claude API"],
+        category: "ai",
+        emoji: "🧠",
         image: null,
-        demo: "https://demo.example.com",
-        github: "https://github.com/Samuelj16/ecommerce",
+        demo: "https://human-in-the-loop-five.vercel.app",
+        github: "https://github.com/Samuelj16/Human-in-the-Loop",
         features: [
-            "User authentication with JWT tokens",
-            "Product search with advanced filters",
-            "Shopping cart with persistent storage",
-            "Secure Stripe payment processing",
-            "Admin dashboard for inventory"
+            "Approval gate that prices a plan before any spend",
+            "Citation ledger: every link diffed against real search results",
+            "Streaming progress over SSE while the agent works",
+            "Provider-agnostic — Claude or any OpenAI-compatible endpoint",
+            "Deployed live on Railway (API) and Vercel (web)"
         ]
     },
     {
         id: 2,
-        title: "Real-Time Chat Application",
-        description: "WebSocket-powered chat app with private messaging, group chats, and file sharing capabilities.",
-        longDescription: "A real-time messaging application using Socket.io for instant communication. Features include private messaging, group chat rooms, typing indicators, read receipts, and file sharing with drag-and-drop support.",
-        tech: ["Vue.js", "Socket.io", "Express", "Redis"],
+        title: "Laetitia Nail Design",
+        description: "Studio site and custom booking engine for a one-chair nail studio, with a deposit gate and an admin panel the owner runs herself.",
+        longDescription: "A full-stack FastAPI application built so a single nail artist can run her entire business without touching code: a portfolio, a priced service menu, and a booking engine that takes a deposit up front and lets clients upload inspiration photos with their request. Automated reminders go out 24 hours and 2 hours before an appointment. Payments and SMS fall back to mock mode until real credentials are added, so the whole booking flow can be clicked through offline with no Square account, no Twilio account and no network.",
+        tech: ["FastAPI", "SQLAlchemy", "Jinja2", "Docker", "Square API", "Twilio"],
         category: "fullstack",
-        emoji: "💬",
+        emoji: "💅",
         image: null,
-        demo: "https://chat.example.com",
-        github: "https://github.com/Samuelj16/chat-app",
+        demo: null,
+        github: null,
         features: [
-            "Real-time messaging with Socket.io",
-            "Private and group chat support",
-            "Typing indicators and read receipts",
-            "File sharing with drag-and-drop",
-            "Message history with Redis caching"
+            "Booking engine with deposit gate and photo upload",
+            "Automated 24h and 2h appointment reminders",
+            "Admin panel for services, pricing and availability",
+            "Mock payment/SMS fallback — full flow works offline",
+            "One-command setup script; Docker and Render configs included"
         ]
     },
     {
         id: 3,
-        title: "Weather Dashboard",
-        description: "Interactive weather application with location-based forecasts and beautiful visualizations.",
-        longDescription: "A weather dashboard that provides current conditions, hourly forecasts, and 7-day outlooks. Features geolocation, city search, interactive maps, and animated weather icons with smooth transitions.",
-        tech: ["JavaScript", "OpenWeather API", "Chart.js", "CSS3"],
-        category: "frontend",
-        emoji: "🌤️",
+        title: "StockSage",
+        description: "Unified stock research for beginner investors, with an AI assistant that explains every unfamiliar term in plain language.",
+        longDescription: "StockSage pulls together the parts of stock research that are normally scattered across half a dozen sites: search a ticker, read its price history and financial metrics, scan the latest news, and ask an AI assistant to explain anything you don't recognise. Deliberately a research and learning tool — no trading, no price predictions, no recommendations. Built to a documented MVC design, and it runs with zero configuration: without API keys it serves realistic generated market data and a rule-based explainer, so every feature works on first launch.",
+        tech: ["React 18", "Vite", "Express", "Node.js", "JWT", "Claude API"],
+        category: "fullstack",
+        emoji: "📈",
         image: null,
-        demo: "https://weather.example.com",
-        github: "https://github.com/Samuelj16/weather-app",
+        demo: null,
+        github: null,
         features: [
-            "Geolocation-based weather detection",
-            "7-day forecast with hourly breakdown",
-            "Interactive charts for temperature trends",
-            "Animated weather icons",
-            "City search with autocomplete"
+            "Ticker search with price history and financial metrics",
+            "AI assistant that explains financial terms on demand",
+            "JWT auth with bcrypt password hashing",
+            "Alpha Vantage integration with a built-in demo fallback",
+            "MVC architecture; storage layer swappable for MongoDB Atlas"
         ]
     },
     {
         id: 4,
-        title: "Task Management API",
-        description: "RESTful API for task management with authentication, rate limiting, and comprehensive documentation.",
-        longDescription: "A production-ready REST API built with Node.js and Express. Implements CRUD operations for tasks and projects, user authentication, role-based access control, rate limiting, and auto-generated Swagger documentation.",
-        tech: ["Node.js", "Express", "PostgreSQL", "Swagger"],
-        category: "api",
-        emoji: "📋",
+        title: "job-bot",
+        description: "Job application assistant that scores public postings against your resume, then tailors and submits the ones you approve.",
+        longDescription: "A Python pipeline that scrapes public Greenhouse, Lever and Indeed postings, scores each one against your resume with Claude, and presents the matches for review. Nothing is sent without approval — for every job you accept, it tailors a resume and cover letter to that posting, then drives the application form with Playwright. Roles, locations, required and preferred skills, and the company slugs to pull from are all configured in a single YAML file.",
+        tech: ["Python", "Claude API", "Playwright", "BeautifulSoup", "YAML"],
+        category: "ai",
+        emoji: "🤖",
         image: null,
-        demo: "https://api.example.com/docs",
-        github: "https://github.com/Samuelj16/task-api",
+        demo: null,
+        github: null,
         features: [
-            "RESTful API with CRUD operations",
-            "JWT-based authentication",
-            "Role-based access control",
-            "Rate limiting and request validation",
-            "Auto-generated Swagger docs"
+            "Scrapes Greenhouse, Lever and Indeed postings",
+            "Claude-scored match ranking against your resume",
+            "Human review step before anything is submitted",
+            "Per-job tailored resume and cover letter generation",
+            "Playwright-driven form auto-fill"
         ]
     },
     {
         id: 5,
-        title: "Serverless Image Processor",
-        description: "AWS Lambda-based image processing service with automatic resizing and optimization.",
-        longDescription: "A serverless image processing pipeline using AWS Lambda, S3, and CloudFront. Automatically resizes, compresses, and serves optimized images. Includes a web interface for uploads and processing configuration.",
-        tech: ["AWS Lambda", "S3", "CloudFront", "Python"],
-        category: "cloud",
-        emoji: "🖼️",
+        title: "Wedding Invitation",
+        description: "A single self-contained HTML file — photo, music, fonts and artwork all embedded — that pastes into iMessage as a proper link card.",
+        longDescription: "A digital wedding invitation with an RSVP flow, built as one file with no build step and nothing external to upload: the photograph, the background music, the typefaces and the artwork are all embedded inline. The fiddly part was the link preview. iMessage's scraper will not resolve a relative og:image, so the invitation pastes as bare text unless the Open Graph tags carry absolute URLs — six of them across the invitation and RSVP pages, kept in sync with the deployed Netlify address.",
+        tech: ["HTML5", "CSS3", "JavaScript", "Open Graph", "Netlify"],
+        category: "frontend",
+        emoji: "💌",
         image: null,
-        demo: null,
-        github: "https://github.com/Samuelj16/image-processor",
+        demo: "https://samuelandwildineinvatation.netlify.app/",
+        github: null,
         features: [
-            "Automatic image resizing on upload",
-            "Multiple format conversions",
-            "CDN distribution via CloudFront",
-            "Cost-effective serverless architecture",
-            "Web upload interface"
+            "Entirely self-contained — one file, zero dependencies",
+            "Embedded photo, music, fonts and artwork",
+            "RSVP form with reply tracking",
+            "Open Graph tags tuned for iMessage link previews",
+            "Deployed on Netlify"
         ]
     },
     {
         id: 6,
-        title: "Portfolio Generator",
-        description: "Dynamic portfolio builder that generates static sites from JSON configuration.",
-        longDescription: "A tool that generates beautiful portfolio websites from simple JSON configurations. Supports multiple themes, custom sections, and automatic deployment to GitHub Pages or Netlify.",
-        tech: ["JavaScript", "Handlebars", "SCSS", "Node.js"],
+        title: "Wedding Website",
+        description: "A nine-page wedding site driven entirely by one config file — change it once and every page, countdown and calendar link updates.",
+        longDescription: "Plain HTML, CSS and JavaScript with no build step, no framework and no dependencies. Nine pages cover the schedule, venue, RSVP, travel, FAQ, registry, contacts and the couple's story. All of it reads from a single config file holding the names, date, venue, RSVP deadline and contacts — edit that one file and the headers, footers, countdown, calendar download and map links all follow. Dates keep their UTC offset so the countdown and the generated calendar file are correct for guests in other timezones.",
+        tech: ["HTML5", "CSS3", "JavaScript", "Netlify"],
         category: "frontend",
-        emoji: "✨",
+        emoji: "💍",
         image: null,
-        demo: "https://portfolio-gen.example.com",
-        github: "https://github.com/Samuelj16/portfolio-generator",
+        demo: "https://samuelandwildinewedding.netlify.app",
+        github: null,
         features: [
-            "JSON-based configuration",
-            "Multiple built-in themes",
-            "Responsive design output",
-            "Auto-deploy to GitHub Pages",
-            "SEO optimization included"
+            "Nine pages fed by a single config file",
+            "Live countdown and downloadable calendar invite",
+            "Timezone-correct dates via explicit UTC offsets",
+            "RSVP with per-guest meal and dietary options",
+            "No build step — deploys to any static host"
         ]
     },
     {
         id: 7,
-        title: "GraphQL Blog API",
-        description: "Modern blog backend with GraphQL, real-time subscriptions, and content management.",
-        longDescription: "A GraphQL API for a blog platform featuring queries, mutations, and subscriptions. Includes user authentication, post management, comments, likes, and real-time updates for new content.",
-        tech: ["GraphQL", "Apollo Server", "MongoDB", "Node.js"],
-        category: "api",
-        emoji: "📝",
+        title: "2027 Budget Board",
+        description: "An interactive one-board view of a full-year household budget where every dollar figure is editable and everything recalculates live.",
+        longDescription: "A single self-contained page that turns a year of budget spreadsheets into one readable board: money flow from income into fixed, variable and savings buckets; every funded line ranked as one proportional bar; the merge from source file to template with the items that never mapped called out; twelve months side by side; and savings rate against one-time targets and outstanding debt. Every figure on the board is an editable field — totals, percentages, bar widths, net balance and goal runways all recompute as you type. No build step and no install.",
+        tech: ["HTML5", "CSS3", "JavaScript", "Data Visualization"],
+        category: "frontend",
+        emoji: "📊",
         image: null,
-        demo: "https://graphql.example.com",
-        github: "https://github.com/Samuelj16/graphql-blog",
+        demo: null,
+        github: null,
         features: [
-            "Full GraphQL implementation",
-            "Real-time subscriptions",
-            "User authentication flow",
-            "Comment and like system",
-            "Content moderation tools"
+            "Five linked figures on one pan-and-scan board",
+            "Every dollar figure editable, with live recalculation",
+            "Colour-coded fixed / variable / savings categories",
+            "Unmapped source-file items surfaced rather than hidden",
+            "Savings-rate runway against one-time goals and debt"
         ]
     },
     {
         id: 8,
-        title: "CI/CD Pipeline Dashboard",
-        description: "Visualization tool for monitoring CI/CD pipelines across multiple repositories.",
-        longDescription: "A dashboard for monitoring build and deployment pipelines. Integrates with GitHub Actions, displays build status, deployment history, and sends notifications for failures.",
-        tech: ["React", "GitHub API", "D3.js", "Firebase"],
+        title: "Serverless Employees API",
+        description: "A minimal AWS Lambda REST API backed by MongoDB, designed to sit behind an API Gateway HTTP API with proxy integration.",
+        longDescription: "A small, deliberately focused serverless service: list and create employee records over HTTP, with the Lambda handler doing its own routing, validation and status-code mapping for proxy integration. Returns 201 on creation, 400 when a required field is missing, and 404 for unknown routes — the kind of boundary handling that is easy to skip in a Lambda and painful to debug later.",
+        tech: ["AWS Lambda", "API Gateway", "MongoDB", "Python"],
         category: "cloud",
-        emoji: "🔄",
-        image: null,
-        demo: "https://cicd.example.com",
-        github: "https://github.com/Samuelj16/cicd-dashboard",
-        features: [
-            "Multi-repository monitoring",
-            "Real-time build status updates",
-            "Deployment history visualization",
-            "Failure notifications",
-            "Team collaboration features"
-        ]
-    },
-    {
-        id: 9,
-        title: "Expense Tracker PWA",
-        description: "Progressive web app for tracking expenses with offline support and data visualization.",
-        longDescription: "A Progressive Web App for personal finance management. Features offline functionality, expense categorization, budget tracking, and beautiful charts. Syncs across devices when online.",
-        tech: ["React", "IndexedDB", "Service Workers", "Chart.js"],
-        category: "frontend",
-        emoji: "💰",
-        image: null,
-        demo: "https://expense.example.com",
-        github: "https://github.com/Samuelj16/expense-tracker",
-        features: [
-            "Offline-first architecture",
-            "Expense categorization",
-            "Budget tracking and alerts",
-            "Data visualization with charts",
-            "Cross-device sync"
-        ]
-    },
-    {
-        id: 10,
-        title: "Microservices Template",
-        description: "Docker-based microservices architecture template with service discovery and API gateway.",
-        longDescription: "A production-ready microservices template using Docker and Kubernetes. Includes service discovery, API gateway, centralized logging, and monitoring with Prometheus and Grafana.",
-        tech: ["Docker", "Kubernetes", "Node.js", "RabbitMQ"],
-        category: "cloud",
-        emoji: "🐳",
+        emoji: "☁️",
         image: null,
         demo: null,
-        github: "https://github.com/Samuelj16/microservices-template",
+        github: "https://github.com/Samuelj16/lambda-mongodb",
         features: [
-            "Docker Compose for local dev",
-            "Kubernetes deployment configs",
-            "API Gateway with Kong",
-            "Service discovery setup",
-            "Monitoring with Prometheus"
-        ]
-    },
-    {
-        id: 11,
-        title: "Code Snippet Manager",
-        description: "VS Code extension for managing and sharing code snippets with syntax highlighting.",
-        longDescription: "A Visual Studio Code extension for saving, organizing, and sharing code snippets. Features include syntax highlighting, tagging, search, and GitHub Gist synchronization.",
-        tech: ["TypeScript", "VS Code API", "GitHub Gist", "SQLite"],
-        category: "fullstack",
-        emoji: "📎",
-        image: null,
-        demo: null,
-        github: "https://github.com/Samuelj16/snippet-manager",
-        features: [
-            "Syntax highlighting support",
-            "Tag-based organization",
-            "Quick search functionality",
-            "GitHub Gist sync",
-            "Team sharing capabilities"
-        ]
-    },
-    {
-        id: 12,
-        title: "Authentication Service",
-        description: "Standalone auth microservice with OAuth2, MFA, and session management.",
-        longDescription: "A complete authentication microservice supporting multiple OAuth providers, multi-factor authentication, session management, and audit logging. Designed to be easily integrated into any application.",
-        tech: ["Node.js", "Passport.js", "Redis", "PostgreSQL"],
-        category: "api",
-        emoji: "🔐",
-        image: null,
-        demo: null,
-        github: "https://github.com/Samuelj16/auth-service",
-        features: [
-            "OAuth2 provider integration",
-            "Multi-factor authentication",
-            "Session management with Redis",
-            "Comprehensive audit logging",
-            "Easy REST API integration"
+            "GET and POST /employees over API Gateway HTTP API v2",
+            "Lambda proxy integration with explicit route handling",
+            "Request validation with correct 400 / 404 responses",
+            "MongoDB-backed persistence",
+            "Minimal surface area, no framework overhead"
         ]
     }
 ];
